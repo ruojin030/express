@@ -1,7 +1,7 @@
 var express = require('express');
 const app = express()
 const MongoClient = require('mongodb').MongoClient;
-const mongo_address = 'mongodb://localhost:27017';
+const mongo_address = 'mongodb://130.245.171.133:27017';
 const cookieSession = require('cookie-session');
 
 const port = 80
@@ -25,7 +25,7 @@ MongoClient.connect(mongo_address, (err, client) => {
     }else{
         console.log("success connet to db");
     }
-    db = client.db('pj2');
+    db = client.db('pro');
     //console.log(db);
     app.locals.db = db;
   })
