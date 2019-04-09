@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const mongo_address = 'mongodb://130.245.171.133:27017';
 const cookieSession = require('cookie-session');
 
-const port = 80
+const port = 3000
 
 app.use(cookieSession({
     name: 'session',
@@ -28,6 +28,7 @@ MongoClient.connect(mongo_address, (err, client) => {
     db = client.db('pro');
     //console.log(db);
     app.locals.db = db;
+    db.collection("questions").createIndex({'title':"text",'body':"text"},{default_language: "none"}  )
   })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
