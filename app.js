@@ -21,6 +21,7 @@ app.get('/',function(req, res){
     res.send("hello")
 })
 
+
 MongoClient.connect(mongo_address, (err, client) => {
     // ... start the server
     if(err){
